@@ -1,51 +1,40 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { navPills } from "../Data/Data.json";
+import { changeTabAction } from "../redux/actions/DuAnThuQuanAoActions";
 
 export default function NavigationBar() {
-  return (
-    <ul className="nav nav-pills">
-      <li className="nav-item">
-        <a
-          className="nav-link active  btn-default"
-          data-toggle="pill"
-          href="#tabTopClothes"
+  const { activeTab } = useSelector((state) => state.DuAnThuQuanAoReducer);
+  const dispatch = useDispatch();
+
+  const handleClick = (type) => {
+    dispatch(changeTabAction(type));
+  };
+
+  const renderNavItem = () => {
+    return navPills.map((navItem, index) => {
+      return (
+        <li
+          className="nav-item"
+          key={index}
+          onClick={() => {
+            handleClick(navItem.type);
+          }}
         >
-          Áo
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          className="nav-link  btn-default"
-          data-toggle="pill"
-          href="#tabBotClothes"
-        >
-          Quần
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" data-toggle="pill" href="#tabShoes">
-          Giày dép
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" data-toggle="pill" href="#tabHandBags">
-          Túi xách
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" data-toggle="pill" href="#tabNecklaces">
-          Dây chuyền
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" data-toggle="pill" href="#tabHairStyle">
-          Kiểu tóc
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" data-toggle="pill" href="#tabBackground">
-          Nền
-        </a>
-      </li>
-    </ul>
-  );
+          <a
+            className={
+              navItem.type === activeTab
+                ? "nav-link btn-default active"
+                : "nav-link btn-default"
+            }
+            data-toggle="pill"
+            href={"#" + navItem.tabName}
+          >
+            {navItem.showName}
+          </a>
+        </li>
+      );
+    });
+  };
+  return <ul className="nav nav-pills">{renderNavItem()}</ul>;
 }

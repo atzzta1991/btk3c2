@@ -1,5 +1,4 @@
 import "./App.css";
-import "./assets/css/style.css";
 import DuAnThuQuanAo from "./DuAnThuQuanAo/DuAnThuQuanAo";
 
 function App() {

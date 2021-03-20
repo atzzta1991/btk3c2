@@ -6,10 +6,7 @@ export default function Header() {
       <div className="col-sm-12">
         <div className="card">
           <div className="text-center">
-            <img
-              src={require("./../assets/images/cybersoft.png").default}
-              alt="Card"
-            />
+            <img src="./../assets/images/cybersoft.png" alt="Card" />
           </div>
           <div className="card-body">
             <h4 className="card-title text-center">
