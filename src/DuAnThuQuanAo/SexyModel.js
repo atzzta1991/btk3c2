@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 export default function SexyModel() {
+  const { modelPanel } = useSelector((state) => state.DuAnThuQuanAoReducer);
+
   return (
     <div className="contain">
       <div className="body" />
@@ -8,27 +11,13 @@ export default function SexyModel() {
       <div
         className="hairstyle"
         style={{
-          width: 1000,
-          height: 1000,
-          background: 'url("./assets/images/hairstyle/hairstyle3.png")',
-          position: "absolute",
-          top: "-75%",
-          right: "-57%",
-          transform: "scale(0.15)",
-          zIndex: 4,
+          background: `url(${modelPanel[5].imgSrc})`,
         }}
       />
       <div
         className="necklace"
         style={{
-          width: 500,
-          height: 1000,
-          background: 'url("./assets/images/necklaces/necklace3.png")',
-          position: "absolute",
-          bottom: "-40%",
-          right: "-3.5%",
-          transform: "scale(0.5)",
-          zIndex: 4,
+          background: `url(${modelPanel[4].imgSrc})`,
         }}
       />
       <div
@@ -36,7 +25,7 @@ export default function SexyModel() {
         style={{
           width: 500,
           height: 500,
-          background: 'url("./assets/images/clothes/topcloth5.png")',
+          background: `url(${modelPanel[0].imgSrc})`,
           position: "absolute",
           top: "-9%",
           left: "-5%",
@@ -49,7 +38,7 @@ export default function SexyModel() {
         style={{
           width: 500,
           height: 1000,
-          background: 'url("./../assets/images/clothes/botcloth4.png")',
+          background: `url(${modelPanel[1].imgSrc})`,
           position: "absolute",
           top: "-30%",
           left: "-5%",
@@ -60,34 +49,19 @@ export default function SexyModel() {
       <div
         className="handbag"
         style={{
-          width: 500,
-          height: 1000,
-          background: 'url("./../assets/images/handbags/handbag2.png")',
-          position: "absolute",
-          bottom: "-40%",
-          right: "-3.5%",
-          transform: "scale(0.5)",
-          zIndex: 4,
+          background: `url(${modelPanel[3].imgSrc})`,
         }}
       />
       <div
         className="feet"
         style={{
-          width: 500,
-          height: 1000,
-          background: 'url("./../assets/images/shoes/shoes2.png")',
-          position: "absolute",
-          bottom: "-37%",
-          right: "-3.5%",
-          transform: "scale(0.5)",
-          zIndex: 1,
+          background: `url(${modelPanel[2].imgSrc})`,
         }}
       />
       <div
         className="background"
         style={{
-          backgroundImage:
-            'url("./../assets/images/background/background1.jpg")',
+          backgroundImage: `url(${modelPanel[6].imgSrc})`,
         }}
       />
     </div>

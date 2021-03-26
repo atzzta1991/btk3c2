@@ -23,9 +23,8 @@ export default function NavigationBar() {
         >
           <a
             className={
-              navItem.type === activeTab
-                ? "nav-link btn-default active"
-                : "nav-link btn-default"
+              "nav-link btn-default " +
+              (navItem.type === activeTab ? "active" : "")
             }
             data-toggle="pill"
             href={"#" + navItem.tabName}

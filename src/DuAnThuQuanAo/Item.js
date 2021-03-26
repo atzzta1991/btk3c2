@@ -1,7 +1,15 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { changeClothesAction } from "../redux/actions/DuAnThuQuanAoActions";
 
 export default function Item(props) {
   const { item } = props;
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(changeClothesAction(item));
+  };
 
   return (
     <div className="card text-center">
@@ -9,7 +17,7 @@ export default function Item(props) {
       <h4>
         <b>{item.name}</b>
       </h4>
-      <button>Thử đồ</button>
+      <button onClick={handleClick}>Thử đồ</button>
     </div>
   );
 }
